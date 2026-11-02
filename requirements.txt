@@ -32,11 +32,11 @@ python-dotenv>=1.0.0
 
 
 
-# cd .\Blockchain\api
-# node index.js
+cd .\Blockchain\api
+node index.js
 
-# cd .\CV_model
-# ..\.venv\Scripts\python.exe .\scripts\live_camera.py
+cd .\CV_model
+..\.venv\Scripts\python.exe .\scripts\live_camera.py
 
-# cd .\Blockchain\dashboard
-# npm run dev
+cd .\Blockchain\dashboard
+npm run dev

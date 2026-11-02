@@ -536,6 +536,11 @@ def run_yolo_pipeline(cap, yolo_model, model, class_names, device, args,
     if note_bbox is None:
         # Timeout expired — no banknote was detected
         print(f"No banknote detected within {args.timeout:.0f} seconds. Camera stopped.")
+        if frame is not None:
+            disp = frame.copy()
+            _put(disp, f"No banknote detected ({args.timeout:.0f}s timeout)", (12, 32), color=COL_AMBER, thickness=2)
+            cv2.imshow(WINDOW_NAME, disp)
+            cv2.waitKey(1200)
         return
 
     # ── Exactly-once classification ──────────────────────────────────────────
@@ -574,7 +579,7 @@ def run_yolo_pipeline(cap, yolo_model, model, class_names, device, args,
         thickness=2,
     )
     cv2.imshow(WINDOW_NAME, display)
-    cv2.waitKey(1)
+    cv2.waitKey(2000)
 
     if classification.decision == "ACCEPT":
         review_tracker.reset()
@@ -645,7 +650,10 @@ def main():
     yolo_model = load_yolo_model(args.yolo_checkpoint) if args.yolo_pipeline else None
 
     # Camera
-    cap = cv2.VideoCapture(args.camera)
+    backend = cv2.CAP_DSHOW if sys.platform.startswith("win") else cv2.CAP_ANY
+    cap = cv2.VideoCapture(args.camera, backend)
+    if not cap.isOpened():
+        cap = cv2.VideoCapture(args.camera)
     if not cap.isOpened():
         # Explicit camera-open failure — do NOT treat as a timeout
         print(f"ERROR: Could not open camera index {args.camera}. "
