@@ -1,0 +1,56 @@
+sequenceDiagram
+    autonumber
+    actor Donor
+    participant Slot as Note Cavity / Sensors
+    participant MCU as Hardware MCU (RP2040)
+    participant App as live_camera.py
+    participant YOLO as YOLO26n Detector
+    participant MobNet as MobileNetV3-Large
+    participant Valid as validator.py
+    participant SQLite as donation_box.db
+    participant JSONL as inference.jsonl
+    participant PyBC as src/blockchain.py
+    participant API as Blockchain API (:3000)
+    participant Monad as Monad Testnet
+
+    Donor->>Slot: Inserts banknote (e.g. ₹500)
+    Slot->>MCU: Optical beam-break tripped
+    MCU->>App: Serial packet {"event": "NOTE_INSERTED"}
+    App->>App: Start 7.0s scan timer & open VideoCapture(0)
+    
+    loop Frame Capture (until detection or 7s)
+        App->>YOLO: predict(frame, conf=0.25)
+        YOLO-->>App: Bounding box [x1, y1, x2, y2], conf=0.89, class=5
+    end
+
+    Note over App: Detection acquired! Stop scanning immediately.
+    App->>App: Crop note & resize to 224x224 RGB tensor
+    App->>MobNet: Forward pass (eval_transform)
+    MobNet-->>App: Softmax probabilities: Rs.500 = 99.94%
+    App->>Valid: Evaluate decision thresholds
+    Valid-->>App: decision = ACCEPT, target_bin = "BIN_500"
+
+    Note over App,SQLite: Step 1 & 2: Local Persistence
+    App->>JSONL: Append record to inference.jsonl
+    App->>SQLite: import_single_record(record)
+    SQLite-->>App: Insert confirmed (inserted=1, donation_id="47ab...")
+
+    Note over App,MCU: Step 3: Hardware Safety Interlock
+    App->>MCU: Serial command {"cmd": "DISPENSE", "target": "ACCEPT_BIN"}
+    MCU->>Slot: Pulse vault solenoid (500 ms)
+    Slot-->>Donor: Note drops into secure donation vault
+    MCU->>MCU: Set RGB LED to Solid Green
+
+    Note over App,Monad: Step 4: Blockchain Provenance (Async/Offline-Safe)
+    App->>PyBC: register_blockchain_proof(record)
+    PyBC->>API: POST /register-proof {proofHash, sourceId, donationId}
+    API->>SQLite: Query row by donationId
+    API->>API: Read mobilenet_v3_clean.pt -> compute modelHash
+    API->>API: Create Canonical AI Event & compute canonical proofHash
+    API->>Monad: contract.registerProof(proofHash, sourceId)
+    Monad-->>API: Transaction receipt (txHash="0x8f2a...", block=1284950)
+    API->>API: Save snapshot to original_records.json
+    API-->>PyBC: 200 OK {success: true, transactionHash, blockNumber}
+    PyBC-->>App: Blockchain registration complete
+    App->>App: Release camera & close OpenCV windows
+

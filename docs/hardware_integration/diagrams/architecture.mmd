@@ -1,0 +1,63 @@
+graph TD
+    subgraph PhysicalHardware ["1. Physical Hardware Layer (To Be Integrated)"]
+        Slot["Note Slot / Cavity"] -->|Optical Beam-Break Sensor| MCU["Microcontroller (RP2040/Nano)"]
+        MCU -->|USB-UART Serial| Bridge["Hardware Bridge (Proposed)"]
+        VaultGate["Vault Solenoid / Motor"]
+        ReviewGate["Review Chute / Return Diverter"]
+        StatusLED["RGB Status LED / LCD"]
+    end
+
+    subgraph VisionPipeline ["2. Computer Vision & ML Pipeline (CV_model)"]
+        Cam["USB Camera (UVC BGR Frame)"] -->|cv2.VideoCapture| LiveCam["live_camera.py"]
+        LiveCam -->|7.0s Detection Window| YOLO["YOLO26n Detector\n(yolo26n_robust best.pt)"]
+        YOLO -->|Coordinates (x,y,w,h)| Crop["Dynamic Note Crop & PIL RGB Transform"]
+        Crop -->|224x224 Normalized Tensor| MobileNet["MobileNetV3-Large\n(mobilenet_v3_clean.pt)"]
+        MobileNet -->|Softmax Probabilities| Validator["validator.py (Multi-Stage Gates)"]
+    end
+
+    subgraph DecisionGating ["3. Decision Logic & State Machine"]
+        Validator -->|conf >= 0.80| Accept["ACCEPT (Confirmed Donation)"]
+        Validator -->|0.45 <= conf < 0.80| ReviewLow["REVIEW (Low Confidence)"]
+        Validator -->|Aspect / Skin / Dark Fail| ReviewReject["REVIEW (Unknown / Foreign Object)"]
+        YOLO -->|Timeout >= 7.0s| TimeoutEvent["REVIEW (No Banknote Detected)"]
+        
+        ReviewLow --> Tracker["ReviewTracker (review_tracker.py)"]
+        ReviewReject --> Tracker
+        TimeoutEvent --> Tracker
+        Tracker -->|Sequential ID Allocation| RevID["RANDOM_### Sequential ID"]
+    end
+
+    subgraph LocalPersistence ["4. Local Persistence & Auditing"]
+        Accept -->|Append Event| InfLog["inference.jsonl (Audit Log)"]
+        Accept -->|import_single_record()| DonDB[("SQLite: donation_box.db\n(donations table)")]
+        
+        RevID -->|Append Event| RevLog["review_events.jsonl"]
+        RevID -->|insert_review_event()| RevDB[("SQLite: review_events.db\n(review_events table)")]
+    end
+
+    subgraph HardwareInterlock ["5. Hardware Actuation Safety Boundary"]
+        DonDB -->|Commit Confirmed| Interlock{"Safety Check:\nDB Inserted >= 1?"}
+        Interlock -->|YES| DropSignal["Send DROP_ACCEPT to MCU"]
+        DropSignal --> VaultGate
+        Interlock -->|NO / Error| AbortSignal["Send DROP_RETURN to MCU"]
+        AbortSignal --> ReviewGate
+        
+        RevDB --> ReturnSignal["Send DROP_REVIEW to MCU"]
+        ReturnSignal --> ReviewGate
+    end
+
+    subgraph BlockchainProvenance ["6. Blockchain Provenance Layer (Optional / Offline-Safe)"]
+        DonDB -->|record + donationId| PyBC["src/blockchain.py"]
+        PyBC -->|HTTP POST /register-proof| API["Blockchain API (index.js:3000)"]
+        
+        subgraph MonadNetwork ["Monad Testnet (Chain ID 10143)"]
+            API -->|Model Hash + Canonical AI Event| Contract["DonationProvenanceRegistry.sol\n(0xBCD9668...7fd7e6)"]
+            Contract -->|ProofRegistered Event| MonadLedger[("Monad On-Chain State")]
+        end
+
+        API -->|Original Record Freeze| OrigReg[("original_records.json")]
+        API -->|Query State / Audit| Dashboard["Vite Audit Dashboard (:5173)"]
+        
+        PyBC -.->|Connection Error Catch| OfflineFallback["Offline Fallback: ML Record Safe Locally"]
+    end
+

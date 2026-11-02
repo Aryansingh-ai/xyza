@@ -1,0 +1,12 @@
+path: .
+train: images/train
+val: images/val
+test: images/test
+
+names:
+  0: "10 INR"
+  1: "20 INR"
+  2: "50 INR"
+  3: "100 INR"
+  4: "200 INR"
+  5: "500 INR"

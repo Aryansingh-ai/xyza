@@ -1,0 +1,48 @@
+sequenceDiagram
+    autonumber
+    actor Donor
+    participant Slot as Note Cavity
+    participant MCU as Hardware MCU
+    participant App as live_camera.py
+    participant YOLO as YOLO26n Detector
+    participant MobNet as MobileNetV3-Large
+    participant RevTrk as ReviewTracker
+    participant RevDB as review_events.db
+    participant RevLog as review_events.jsonl
+
+    alt Scenario A: Inactivity Timeout (No Banknote Detected)
+        Donor->>Slot: Triggers slot without inserting banknote
+        MCU->>App: NOTE_INSERTED trigger
+        App->>App: Start scan timer (deadline = start + 7.0s)
+        
+        loop 7.0 Seconds Scanning Loop
+            App->>YOLO: predict(frame)
+            YOLO-->>App: No banknote boxes (conf < 0.25)
+            App->>App: Check time.monotonic() >= deadline
+        end
+        
+        Note over App: 7.0s Timeout Expired! Stop scanning.
+        App->>RevTrk: should_create_event("not_a_banknote", None, 0.0)
+        RevTrk->>RevDB: allocate_review_id() -> "RANDOM_007"
+        RevTrk->>RevDB: insert_review_event("RANDOM_007", "not_a_banknote")
+        RevTrk-->>App: (True, "RANDOM_007")
+        App->>RevLog: Append REVIEW record
+        App->>MCU: {"cmd": "DISPENSE", "target": "IDLE", "status": "TIMEOUT"}
+        App->>App: Print "No banknote detected within 7 seconds. Camera stopped."
+        App->>App: Release camera & exit cleanly
+
+    else Scenario B: Uncertain / Low-Confidence Note (conf < 0.80)
+        Donor->>Slot: Inserts heavily damaged or soiled note
+        App->>YOLO: Banknote detected! Crop extracted.
+        App->>MobNet: Classify crop
+        MobNet-->>App: Softmax probabilities (Top class = ₹50 @ 58.2%)
+        Note over App: 0.45 <= conf (0.582) < 0.80 -> Gated to REVIEW
+        App->>RevTrk: should_create_event("low_confidence", "50", 0.582)
+        RevTrk->>RevDB: allocate_review_id() -> "RANDOM_008"
+        RevTrk->>RevDB: insert_review_event("RANDOM_008", "low_confidence", 50)
+        App->>RevLog: Append REVIEW record
+        App->>MCU: {"cmd": "DISPENSE", "target": "REVIEW_BIN", "id": "RANDOM_008"}
+        MCU->>Slot: Reverse motor / open review chute to return note
+        App->>App: Release camera & exit cleanly
+    end
+

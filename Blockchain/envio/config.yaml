@@ -1,0 +1,42 @@
+# yaml-language-server: $schema=./node_modules/envio/evm.schema.json
+
+name: daandrishti-provenance-indexer
+
+description: >
+  Indexes ProofRegistered and IssuerStatusChanged events from the
+  DonationProvenanceRegistry contract on Monad Testnet (chain 10143).
+  Used by the DAANDRISHTI / DivyaKosh AI provenance system as a
+  read-only query layer for proof history and issuer authorization.
+
+#
+# Contracts are declared once with their event signatures.
+# Addresses are bound per-chain below.
+#
+contracts:
+  - name: DonationProvenanceRegistry
+    handler: src/EventHandlers.js
+    events:
+      - event: "ProofRegistered(bytes32 indexed proofHash, string sourceId, uint256 timestamp, address indexed registeredBy)"
+      - event: "IssuerStatusChanged(address indexed issuer, bool isAuthorized)"
+
+#
+# Monad Testnet: chain 10143
+#
+# start_block: 68752247
+#   = block where DonationProvenanceRegistry was deployed.
+#   Source: testnet.monadexplorer.com/address/0xBCD966873f48563643Bde79760eEC98a567fd7e6
+#   Confirmed deployment tx: found in contract creation record on Monad Explorer.
+#   Setting start_block to the deployment block avoids scanning all prior history.
+#
+chains:
+  - id: 10143
+    hypersync_config:
+      url: "https://10143.hypersync.xyz"
+    start_block: 68752247
+    contracts:
+      - name: DonationProvenanceRegistry
+        address: "0xBCD966873f48563643Bde79760eEC98a567fd7e6"
+
+field_selection:
+  transaction_fields:
+    - "hash"

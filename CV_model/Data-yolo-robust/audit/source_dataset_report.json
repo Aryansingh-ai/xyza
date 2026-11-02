@@ -1,0 +1,1887 @@
+{
+  "source_counts": {
+    "processed_yolo": {
+      "images": 1312
+    },
+    "data_clean": {
+      "images": 26009
+    },
+    "synthetic_black_box": {
+      "images": 22920
+    },
+    "data_clean_500_synthetic": {
+      "images": 2780
+    }
+  },
+  "invalid_by_source": {
+    "processed_yolo": [],
+    "synthetic": [
+      {
+        "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\synthetic_dataset\\black_box\\10\\SYN_10_0006513.jpg",
+        "reason": "foreground area ratio below 0.01"
+      },
+      {
+        "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\synthetic_dataset\\black_box\\10\\SYN_10_0006514.jpg",
+        "reason": "foreground area ratio below 0.01"
+      }
+    ]
+  },
+  "unresolved_data_clean": [
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\test\\10\\RC_SRC_002578.jpg",
+      "denomination": "10",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\test\\10\\RC_SRC_002579.jpg",
+      "denomination": "10",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\test\\10\\RC_SRC_002584.jpg",
+      "denomination": "10",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\test\\100\\RC_SRC_002709.jpg",
+      "denomination": "100",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\test\\100\\RC_SRC_002717.jpg",
+      "denomination": "100",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\test\\100\\RC_SRC_002720.jpg",
+      "denomination": "100",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\test\\100\\RC_SRC_002721.jpg",
+      "denomination": "100",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\test\\100\\RC_SRC_002724.jpg",
+      "denomination": "100",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\test\\100\\RC_SRC_002726.jpg",
+      "denomination": "100",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\test\\100\\RC_SRC_002729.jpg",
+      "denomination": "100",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\test\\100\\RC_SRC_002731.jpg",
+      "denomination": "100",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\test\\100\\RC_SRC_002734.jpg",
+      "denomination": "100",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\test\\100\\RC_SRC_002740.jpg",
+      "denomination": "100",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\test\\20\\RC_SRC_002636.jpg",
+      "denomination": "20",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\test\\20\\RC_SRC_002648.jpeg",
+      "denomination": "20",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\test\\20\\RC_SRC_002649.jpeg",
+      "denomination": "20",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\test\\20\\RC_SRC_002650.jpeg",
+      "denomination": "20",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\test\\20\\RC_SRC_002651.jpeg",
+      "denomination": "20",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\test\\20\\RC_SRC_002652.jpeg",
+      "denomination": "20",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\test\\20\\RC_SRC_002653.jpeg",
+      "denomination": "20",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\test\\20\\RC_SRC_002654.jpeg",
+      "denomination": "20",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\test\\20\\RC_SRC_002655.jpeg",
+      "denomination": "20",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\test\\20\\RC_SRC_002656.jpeg",
+      "denomination": "20",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\test\\20\\RC_SRC_002657.jpeg",
+      "denomination": "20",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\test\\20\\RC_SRC_002658.jpeg",
+      "denomination": "20",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\test\\20\\RC_SRC_002659.jpeg",
+      "denomination": "20",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\test\\20\\RC_SRC_002660.jpeg",
+      "denomination": "20",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\test\\20\\RC_SRC_002661.jpeg",
+      "denomination": "20",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\test\\20\\RC_SRC_002662.jpeg",
+      "denomination": "20",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\test\\20\\RC_SRC_002663.jpeg",
+      "denomination": "20",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\test\\20\\RC_SRC_002664.jpeg",
+      "denomination": "20",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\test\\20\\RC_SRC_002665.jpeg",
+      "denomination": "20",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\test\\20\\RC_SRC_002666.jpeg",
+      "denomination": "20",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\test\\20\\RC_SRC_002667.jpeg",
+      "denomination": "20",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\test\\20\\RC_SRC_002668.jpeg",
+      "denomination": "20",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\test\\20\\RC_SRC_002669.jpeg",
+      "denomination": "20",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\test\\20\\RC_SRC_002670.jpeg",
+      "denomination": "20",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\test\\200\\RC_SRC_002814.jpg",
+      "denomination": "200",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\test\\200\\RC_SRC_002824.jpg",
+      "denomination": "200",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\test\\200\\RC_SRC_002825.jpg",
+      "denomination": "200",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\test\\200\\RC_SRC_002830.jpg",
+      "denomination": "200",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\test\\50\\RC_SRC_002672.jpg",
+      "denomination": "50",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\test\\50\\RC_SRC_002685.jpg",
+      "denomination": "50",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\test\\500\\RC_SRC_002844.jpg",
+      "denomination": "500",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\test\\500\\RC_SRC_002851.jpg",
+      "denomination": "500",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\test\\500\\RC_SRC_002858.jpg",
+      "denomination": "500",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\test\\500\\RC_SRC_002864.jpg",
+      "denomination": "500",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\test\\500\\RC_SRC_002871.jpg",
+      "denomination": "500",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\test\\500\\RC_SRC_002874.jpg",
+      "denomination": "500",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\test\\500\\RC_SRC_002878.jpg",
+      "denomination": "500",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\test\\500\\RC_SRC_002880.jpg",
+      "denomination": "500",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\10\\RC_SRC_002581.jpg",
+      "denomination": "10",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\10\\RC_SRC_002582.jpg",
+      "denomination": "10",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\10\\RC_SRC_002585.jpg",
+      "denomination": "10",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\10\\RC_SRC_002586.jpg",
+      "denomination": "10",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\10\\RC_SRC_002587.jpg",
+      "denomination": "10",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\10\\RC_SRC_002588.jpg",
+      "denomination": "10",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\10\\RC_SRC_002589.jpg",
+      "denomination": "10",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\10\\RC_SRC_002590.jpg",
+      "denomination": "10",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\10\\RC_SRC_002591.jpg",
+      "denomination": "10",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\10\\RC_SRC_002592.jpg",
+      "denomination": "10",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\10\\RC_SRC_002593.jpg",
+      "denomination": "10",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\10\\RC_SRC_002594.jpg",
+      "denomination": "10",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\10\\RC_SRC_002595.jpeg",
+      "denomination": "10",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\10\\RC_SRC_002596.jpeg",
+      "denomination": "10",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\10\\RC_SRC_002597.jpeg",
+      "denomination": "10",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\10\\RC_SRC_002598.jpeg",
+      "denomination": "10",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\10\\RC_SRC_002599.jpeg",
+      "denomination": "10",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\10\\RC_SRC_002600.jpeg",
+      "denomination": "10",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\10\\RC_SRC_002601.jpeg",
+      "denomination": "10",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\10\\RC_SRC_002602.jpeg",
+      "denomination": "10",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\10\\RC_SRC_002603.jpeg",
+      "denomination": "10",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\10\\RC_SRC_002604.jpeg",
+      "denomination": "10",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\10\\RC_SRC_002605.jpeg",
+      "denomination": "10",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\10\\RC_SRC_002606.jpeg",
+      "denomination": "10",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\10\\RC_SRC_002607.jpeg",
+      "denomination": "10",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\10\\RC_SRC_002608.jpeg",
+      "denomination": "10",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\10\\RC_SRC_002609.jpeg",
+      "denomination": "10",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\10\\RC_SRC_002610.jpeg",
+      "denomination": "10",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\10\\RC_SRC_002611.jpeg",
+      "denomination": "10",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\10\\RC_SRC_002612.jpeg",
+      "denomination": "10",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\10\\RC_SRC_002613.jpeg",
+      "denomination": "10",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\10\\RC_SRC_002614.jpeg",
+      "denomination": "10",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\10\\RC_SRC_002615.jpeg",
+      "denomination": "10",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\10\\RC_SRC_002616.jpeg",
+      "denomination": "10",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\10\\RC_SRC_002617.jpeg",
+      "denomination": "10",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\10\\RC_SRC_002618.jpeg",
+      "denomination": "10",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\10\\RC_SRC_002619.jpeg",
+      "denomination": "10",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\10\\RC_SRC_002620.jpeg",
+      "denomination": "10",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\10\\RC_SRC_002621.jpeg",
+      "denomination": "10",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\10\\RC_SRC_002622.jpeg",
+      "denomination": "10",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\10\\RC_SRC_002623.jpeg",
+      "denomination": "10",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\10\\RC_SRC_002624.jpeg",
+      "denomination": "10",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\10\\RC_SRC_002625.jpeg",
+      "denomination": "10",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\10\\RC_SRC_002626.jpeg",
+      "denomination": "10",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\10\\RC_SRC_002627.jpeg",
+      "denomination": "10",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\10\\RC_SRC_002628.jpeg",
+      "denomination": "10",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\10\\RC_SRC_002629.jpeg",
+      "denomination": "10",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\10\\RC_SRC_002630.jpeg",
+      "denomination": "10",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\10\\RC_SRC_002631.jpeg",
+      "denomination": "10",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\10\\RC_SRC_002632.jpeg",
+      "denomination": "10",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\10\\RC_SRC_002633.jpeg",
+      "denomination": "10",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\10\\RC_SRC_002634.jpeg",
+      "denomination": "10",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\10\\RC_SRC_002635.jpeg",
+      "denomination": "10",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\100\\RC_SRC_002704.jpg",
+      "denomination": "100",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\100\\RC_SRC_002705.jpg",
+      "denomination": "100",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\100\\RC_SRC_002706.jpg",
+      "denomination": "100",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\100\\RC_SRC_002707.jpg",
+      "denomination": "100",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\100\\RC_SRC_002708.jpg",
+      "denomination": "100",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\100\\RC_SRC_002710.jpg",
+      "denomination": "100",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\100\\RC_SRC_002711.jpg",
+      "denomination": "100",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\100\\RC_SRC_002712.jpg",
+      "denomination": "100",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\100\\RC_SRC_002713.jpg",
+      "denomination": "100",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\100\\RC_SRC_002715.jpg",
+      "denomination": "100",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\100\\RC_SRC_002716.jpg",
+      "denomination": "100",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\100\\RC_SRC_002718.jpg",
+      "denomination": "100",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\100\\RC_SRC_002719.jpg",
+      "denomination": "100",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\100\\RC_SRC_002722.jpg",
+      "denomination": "100",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\100\\RC_SRC_002723.jpg",
+      "denomination": "100",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\100\\RC_SRC_002725.jpg",
+      "denomination": "100",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\100\\RC_SRC_002727.jpg",
+      "denomination": "100",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\100\\RC_SRC_002728.jpg",
+      "denomination": "100",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\100\\RC_SRC_002730.jpg",
+      "denomination": "100",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\100\\RC_SRC_002732.jpg",
+      "denomination": "100",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\100\\RC_SRC_002733.jpg",
+      "denomination": "100",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\100\\RC_SRC_002736.jpg",
+      "denomination": "100",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\100\\RC_SRC_002737.jpg",
+      "denomination": "100",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\100\\RC_SRC_002738.jpg",
+      "denomination": "100",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\100\\RC_SRC_002739.jpg",
+      "denomination": "100",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\100\\RC_SRC_002741.jpg",
+      "denomination": "100",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\100\\RC_SRC_002742.jpg",
+      "denomination": "100",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\100\\RC_SRC_002745.jpg",
+      "denomination": "100",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\100\\RC_SRC_002746.jpg",
+      "denomination": "100",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\100\\RC_SRC_002747.jpg",
+      "denomination": "100",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\100\\RC_SRC_002748.jpg",
+      "denomination": "100",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\100\\RC_SRC_002750.jpg",
+      "denomination": "100",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\100\\RC_SRC_002751.jpg",
+      "denomination": "100",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\100\\RC_SRC_002752.jpg",
+      "denomination": "100",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\100\\RC_SRC_002753.jpg",
+      "denomination": "100",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\100\\RC_SRC_002754.jpg",
+      "denomination": "100",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\100\\RC_SRC_002755.jpg",
+      "denomination": "100",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\100\\RC_SRC_002756.jpg",
+      "denomination": "100",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\100\\RC_SRC_002757.jpg",
+      "denomination": "100",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\100\\RC_SRC_002758.jpg",
+      "denomination": "100",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\100\\RC_SRC_002759.jpg",
+      "denomination": "100",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\100\\RC_SRC_002760.jpg",
+      "denomination": "100",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\100\\RC_SRC_002761.jpg",
+      "denomination": "100",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\100\\RC_SRC_002762.jpg",
+      "denomination": "100",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\100\\RC_SRC_002763.jpg",
+      "denomination": "100",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\100\\RC_SRC_002764.jpg",
+      "denomination": "100",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\100\\RC_SRC_002765.jpg",
+      "denomination": "100",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\100\\RC_SRC_002766.jpg",
+      "denomination": "100",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\100\\RC_SRC_002767.jpg",
+      "denomination": "100",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\100\\RC_SRC_002768.jpg",
+      "denomination": "100",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\100\\RC_SRC_002769.jpg",
+      "denomination": "100",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\100\\RC_SRC_002770.jpg",
+      "denomination": "100",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\100\\RC_SRC_002771.jpg",
+      "denomination": "100",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\100\\RC_SRC_002772.jpg",
+      "denomination": "100",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\100\\RC_SRC_002773.jpg",
+      "denomination": "100",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\100\\RC_SRC_002774.jpg",
+      "denomination": "100",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\100\\RC_SRC_002775.jpg",
+      "denomination": "100",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\100\\RC_SRC_002776.jpg",
+      "denomination": "100",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\100\\RC_SRC_002784.jpeg",
+      "denomination": "100",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\100\\RC_SRC_002785.jpeg",
+      "denomination": "100",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\100\\RC_SRC_002786.jpeg",
+      "denomination": "100",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\100\\RC_SRC_002787.jpeg",
+      "denomination": "100",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\100\\RC_SRC_002788.jpeg",
+      "denomination": "100",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\100\\RC_SRC_002789.jpeg",
+      "denomination": "100",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\100\\RC_SRC_002790.jpeg",
+      "denomination": "100",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\100\\RC_SRC_002791.jpeg",
+      "denomination": "100",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\100\\RC_SRC_002792.jpeg",
+      "denomination": "100",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\100\\RC_SRC_002793.jpeg",
+      "denomination": "100",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\100\\RC_SRC_002794.jpeg",
+      "denomination": "100",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\100\\RC_SRC_002795.jpeg",
+      "denomination": "100",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\100\\RC_SRC_002796.jpeg",
+      "denomination": "100",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\100\\RC_SRC_002797.jpeg",
+      "denomination": "100",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\100\\RC_SRC_002798.jpeg",
+      "denomination": "100",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\100\\RC_SRC_002799.jpeg",
+      "denomination": "100",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\100\\RC_SRC_002800.jpeg",
+      "denomination": "100",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\100\\RC_SRC_002801.jpeg",
+      "denomination": "100",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\100\\RC_SRC_002802.jpeg",
+      "denomination": "100",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\100\\RC_SRC_002803.jpeg",
+      "denomination": "100",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\100\\RC_SRC_002804.jpeg",
+      "denomination": "100",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\100\\RC_SRC_002805.jpeg",
+      "denomination": "100",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\100\\RC_SRC_002806.jpeg",
+      "denomination": "100",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\100\\RC_SRC_002807.jpeg",
+      "denomination": "100",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\100\\RC_SRC_002808.jpeg",
+      "denomination": "100",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\100\\RC_SRC_002809.jpeg",
+      "denomination": "100",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\100\\RC_SRC_002810.jpeg",
+      "denomination": "100",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\100\\RC_SRC_002811.jpeg",
+      "denomination": "100",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\100\\RC_SRC_002812.jpeg",
+      "denomination": "100",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\100\\RC_SRC_002813.jpeg",
+      "denomination": "100",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\20\\RC_SRC_002637.jpg",
+      "denomination": "20",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\20\\RC_SRC_002638.jpg",
+      "denomination": "20",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\20\\RC_SRC_002639.jpg",
+      "denomination": "20",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\20\\RC_SRC_002640.jpg",
+      "denomination": "20",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\20\\RC_SRC_002641.jpeg",
+      "denomination": "20",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\20\\RC_SRC_002642.jpeg",
+      "denomination": "20",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\20\\RC_SRC_002643.jpeg",
+      "denomination": "20",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\20\\RC_SRC_002644.jpeg",
+      "denomination": "20",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\20\\RC_SRC_002645.jpeg",
+      "denomination": "20",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\20\\RC_SRC_002646.jpeg",
+      "denomination": "20",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\20\\RC_SRC_002647.jpeg",
+      "denomination": "20",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\200\\RC_SRC_002815.jpg",
+      "denomination": "200",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\200\\RC_SRC_002816.jpg",
+      "denomination": "200",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\200\\RC_SRC_002817.jpg",
+      "denomination": "200",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\200\\RC_SRC_002818.jpg",
+      "denomination": "200",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\200\\RC_SRC_002819.jpg",
+      "denomination": "200",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\200\\RC_SRC_002821.jpg",
+      "denomination": "200",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\200\\RC_SRC_002822.jpg",
+      "denomination": "200",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\200\\RC_SRC_002827.jpg",
+      "denomination": "200",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\200\\RC_SRC_002828.jpg",
+      "denomination": "200",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\200\\RC_SRC_002829.jpg",
+      "denomination": "200",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\200\\RC_SRC_002831.jpg",
+      "denomination": "200",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\200\\RC_SRC_002832.jpg",
+      "denomination": "200",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\200\\RC_SRC_002834.jpg",
+      "denomination": "200",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\200\\RC_SRC_002835.jpg",
+      "denomination": "200",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\200\\RC_SRC_002836.jpg",
+      "denomination": "200",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\200\\RC_SRC_002838.jpeg",
+      "denomination": "200",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\200\\RC_SRC_002839.jpeg",
+      "denomination": "200",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\200\\RC_SRC_002840.jpeg",
+      "denomination": "200",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\200\\RC_SRC_002841.jpeg",
+      "denomination": "200",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\200\\RC_SRC_002842.jpeg",
+      "denomination": "200",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\50\\RC_SRC_002671.jpg",
+      "denomination": "50",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\50\\RC_SRC_002675.jpg",
+      "denomination": "50",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\50\\RC_SRC_002676.jpg",
+      "denomination": "50",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\50\\RC_SRC_002677.jpg",
+      "denomination": "50",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\50\\RC_SRC_002678.jpg",
+      "denomination": "50",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\50\\RC_SRC_002679.jpg",
+      "denomination": "50",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\50\\RC_SRC_002680.jpg",
+      "denomination": "50",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\50\\RC_SRC_002681.jpg",
+      "denomination": "50",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\50\\RC_SRC_002682.jpg",
+      "denomination": "50",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\50\\RC_SRC_002684.jpg",
+      "denomination": "50",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\50\\RC_SRC_002686.jpg",
+      "denomination": "50",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\50\\RC_SRC_002687.jpeg",
+      "denomination": "50",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\50\\RC_SRC_002688.jpeg",
+      "denomination": "50",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\50\\RC_SRC_002689.jpeg",
+      "denomination": "50",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\50\\RC_SRC_002690.jpeg",
+      "denomination": "50",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\50\\RC_SRC_002691.jpeg",
+      "denomination": "50",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\50\\RC_SRC_002692.jpeg",
+      "denomination": "50",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\50\\RC_SRC_002693.jpeg",
+      "denomination": "50",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\50\\RC_SRC_002694.jpeg",
+      "denomination": "50",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\50\\RC_SRC_002695.jpeg",
+      "denomination": "50",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\50\\RC_SRC_002696.jpeg",
+      "denomination": "50",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\50\\RC_SRC_002697.jpeg",
+      "denomination": "50",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\50\\RC_SRC_002698.jpeg",
+      "denomination": "50",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\50\\RC_SRC_002699.jpeg",
+      "denomination": "50",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\50\\RC_SRC_002700.jpeg",
+      "denomination": "50",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\50\\RC_SRC_002701.jpeg",
+      "denomination": "50",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\50\\RC_SRC_002702.jpeg",
+      "denomination": "50",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\500\\RC_SRC_002845.jpg",
+      "denomination": "500",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\500\\RC_SRC_002848.jpg",
+      "denomination": "500",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\500\\RC_SRC_002849.jpg",
+      "denomination": "500",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\500\\RC_SRC_002850.jpg",
+      "denomination": "500",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\500\\RC_SRC_002852.jpg",
+      "denomination": "500",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\500\\RC_SRC_002853.jpg",
+      "denomination": "500",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\500\\RC_SRC_002854.jpg",
+      "denomination": "500",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\500\\RC_SRC_002855.jpg",
+      "denomination": "500",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\500\\RC_SRC_002856.jpg",
+      "denomination": "500",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\500\\RC_SRC_002859.jpg",
+      "denomination": "500",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\500\\RC_SRC_002860.jpg",
+      "denomination": "500",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\500\\RC_SRC_002861.jpg",
+      "denomination": "500",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\500\\RC_SRC_002862.jpg",
+      "denomination": "500",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\500\\RC_SRC_002863.jpg",
+      "denomination": "500",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\500\\RC_SRC_002865.jpg",
+      "denomination": "500",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\500\\RC_SRC_002866.jpg",
+      "denomination": "500",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\500\\RC_SRC_002867.jpg",
+      "denomination": "500",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\500\\RC_SRC_002868.jpg",
+      "denomination": "500",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\500\\RC_SRC_002869.jpg",
+      "denomination": "500",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\500\\RC_SRC_002870.jpg",
+      "denomination": "500",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\500\\RC_SRC_002872.jpg",
+      "denomination": "500",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\500\\RC_SRC_002873.jpg",
+      "denomination": "500",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\500\\RC_SRC_002875.jpg",
+      "denomination": "500",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\500\\RC_SRC_002876.jpg",
+      "denomination": "500",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\500\\RC_SRC_002877.jpg",
+      "denomination": "500",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\500\\RC_SRC_002879.jpg",
+      "denomination": "500",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\500\\RC_SRC_002881.jpg",
+      "denomination": "500",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\train\\500\\RC_SRC_002882.jpg",
+      "denomination": "500",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\val\\10\\RC_SRC_002580.jpg",
+      "denomination": "10",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\val\\10\\RC_SRC_002583.jpg",
+      "denomination": "10",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\val\\100\\RC_SRC_002703.jpg",
+      "denomination": "100",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\val\\100\\RC_SRC_002714.jpg",
+      "denomination": "100",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\val\\100\\RC_SRC_002735.jpg",
+      "denomination": "100",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\val\\100\\RC_SRC_002743.jpg",
+      "denomination": "100",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\val\\100\\RC_SRC_002744.jpg",
+      "denomination": "100",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\val\\100\\RC_SRC_002749.jpg",
+      "denomination": "100",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\val\\100\\RC_SRC_002777.jpg",
+      "denomination": "100",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\val\\100\\RC_SRC_002778.jpg",
+      "denomination": "100",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\val\\100\\RC_SRC_002779.jpg",
+      "denomination": "100",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\val\\100\\RC_SRC_002780.jpg",
+      "denomination": "100",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\val\\100\\RC_SRC_002781.jpg",
+      "denomination": "100",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\val\\100\\RC_SRC_002782.jpg",
+      "denomination": "100",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\val\\100\\RC_SRC_002783.jpg",
+      "denomination": "100",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\val\\200\\RC_SRC_002820.jpg",
+      "denomination": "200",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\val\\200\\RC_SRC_002823.jpg",
+      "denomination": "200",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\val\\200\\RC_SRC_002826.jpg",
+      "denomination": "200",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\val\\200\\RC_SRC_002833.jpg",
+      "denomination": "200",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\val\\200\\RC_SRC_002837.jpg",
+      "denomination": "200",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\val\\50\\RC_SRC_002673.jpg",
+      "denomination": "50",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\val\\50\\RC_SRC_002674.jpg",
+      "denomination": "50",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\val\\50\\RC_SRC_002683.jpg",
+      "denomination": "50",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\val\\500\\RC_SRC_002843.jpg",
+      "denomination": "500",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\val\\500\\RC_SRC_002846.jpg",
+      "denomination": "500",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\val\\500\\RC_SRC_002847.jpg",
+      "denomination": "500",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\val\\500\\RC_SRC_002857.jpg",
+      "denomination": "500",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\val\\500\\RC_SRC_002883.jpeg",
+      "denomination": "500",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\val\\500\\RC_SRC_002884.jpeg",
+      "denomination": "500",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\val\\500\\RC_SRC_002885.jpeg",
+      "denomination": "500",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    },
+    {
+      "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\data_clean\\val\\500\\RC_SRC_002886.jpeg",
+      "denomination": "500",
+      "source_type": "real_camera",
+      "reason": "no reliable bounding-box annotation or retained mask"
+    }
+  ],
+  "masks_present_in_synthetic_output": false,
+  "segmentation_method": "largest connected foreground component above matte-black border threshold"
+}

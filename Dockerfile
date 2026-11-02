@@ -10,10 +10,10 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && rm -rf /var/lib/apt/lists/*
 
 # Copy package manifests first to leverage Docker layer caching
-COPY dpp-monad/api/package*.json ./dpp-monad/api/
+COPY Blockchain/api/package*.json ./Blockchain/api/
 
 # Install production dependencies for the API
-WORKDIR /app/dpp-monad/api
+WORKDIR /app/Blockchain/api
 RUN npm install --omit=dev
 
 # Return to repository root workdir and copy the rest of the application
@@ -24,4 +24,4 @@ COPY . .
 ENV PORT=3000
 EXPOSE 3000
 
-CMD ["node", "dpp-monad/api/index.js"]
+CMD ["node", "Blockchain/api/index.js"]

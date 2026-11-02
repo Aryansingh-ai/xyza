@@ -1,0 +1,50 @@
+sequenceDiagram
+    autonumber
+    participant App as live_camera.py
+    participant Cam as VideoCapture(0)
+    participant DB as SQLite (donation_box.db)
+    participant PyBC as src/blockchain.py
+    participant API as Blockchain API (:3000)
+    participant Monad as Monad Testnet RPC
+
+    alt Case 1: Camera Device Failure
+        App->>Cam: VideoCapture(0)
+        alt Camera not plugged in
+            Cam-->>App: isOpened() == False
+            App->>App: Print "ERROR: Could not open camera index 0"
+            Note over App: Exit immediately without touching DB or Blockchain
+        else Camera disconnected mid-scan
+            Cam-->>App: read() == (False, None)
+            App->>App: raise RuntimeError("Failed to read frame...")
+            App->>Cam: finally: cap.release() & destroyAllWindows()
+            Note over App: Crash averted; hardware watchdog can reset
+        end
+
+    else Case 2: Database Write Failure
+        Note over App: Note classified as ACCEPT
+        App->>DB: import_single_record(record)
+        alt DB locked or disk full
+            DB-->>App: Exception raised
+            Note over App: Gated! Hardware acceptance command NOT sent!
+            Note over App: Note is returned to donor instead of being lost
+        end
+
+    else Case 3: Blockchain API Offline / Network Outage
+        Note over App: Note classified as ACCEPT & saved in SQLite
+        App->>PyBC: register_blockchain_proof(record)
+        PyBC->>API: POST /register-proof (port 3000)
+        alt API server not running (Connection Refused)
+            API--xPyBC: requests.exceptions.ConnectionError
+            Note over PyBC: Caught in try...except!
+            PyBC->>App: Print "Blockchain warning: registration failed"
+            PyBC->>App: Print "ML record remains safe in JSONL/SQLite."
+            Note over App: Continues execution safely. Offline fallback verified.
+        else Monad RPC fails / Gas exhausted
+            API->>Monad: contract.registerProof()
+            Monad--xAPI: RPC timeout or Insufficient Gas
+            API-->>PyBC: 500 Internal Server Error {"error": "..."}
+            PyBC->>App: Print "registration failed"
+            Note over App: Local SQLite donation remains safe and queryable.
+        end
+    end
+

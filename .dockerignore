@@ -2,9 +2,9 @@
 .github
 node_modules
 **/node_modules
-dpp-monad/dashboard/dist
-dpp-monad/dashboard/node_modules
-dpp-monad/envio
+Blockchain/dashboard/dist
+Blockchain/dashboard/node_modules
+Blockchain/envio
 venv
 .venv
 __pycache__

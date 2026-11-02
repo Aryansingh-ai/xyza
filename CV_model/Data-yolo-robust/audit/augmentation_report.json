@@ -1,0 +1,16 @@
+{
+  "seed": 42,
+  "augmentations_per_training_image": 1,
+  "augmented_images": 20042,
+  "operations": [
+    "rotation",
+    "scale",
+    "translation",
+    "brightness_contrast",
+    "gamma",
+    "blur",
+    "noise"
+  ],
+  "training_only": true,
+  "physical_fold_fabrication": false
+}

@@ -1,0 +1,58 @@
+{
+  "seed": 42,
+  "proportions": {
+    "train": 0.8,
+    "val": 0.1,
+    "test": 0.1
+  },
+  "grouping_key": "physical_note_id from data_clean manifest where available; image hash otherwise",
+  "split_counts": {
+    "train": 20042,
+    "val": 3769,
+    "test": 3199
+  },
+  "class_counts": {
+    "train": {
+      "10 INR": 4907,
+      "20 INR": 4357,
+      "50 INR": 3595,
+      "100 INR": 2627,
+      "200 INR": 2166,
+      "500 INR": 2390
+    },
+    "val": {
+      "10 INR": 970,
+      "20 INR": 700,
+      "50 INR": 940,
+      "100 INR": 430,
+      "200 INR": 430,
+      "500 INR": 299
+    },
+    "test": {
+      "10 INR": 840,
+      "20 INR": 620,
+      "50 INR": 700,
+      "100 INR": 400,
+      "200 INR": 340,
+      "500 INR": 299
+    }
+  },
+  "duplicates": {
+    "exact_duplicates_within_split": {
+      "train": 0,
+      "val": 0,
+      "test": 0
+    },
+    "exact_duplicates_across_splits": {
+      "train_vs_val": 0,
+      "train_vs_test": 0,
+      "val_vs_test": 0
+    },
+    "near_duplicate_threshold_hamming": 6,
+    "near_duplicate_candidates_across_splits": {
+      "train_vs_val": 5043,
+      "train_vs_test": 4939,
+      "val_vs_test": 823
+    }
+  }
+}

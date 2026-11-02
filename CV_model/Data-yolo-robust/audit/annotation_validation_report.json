@@ -1,0 +1,50 @@
+{
+  "valid_original_annotations": 27010,
+  "invalid_annotations": {
+    "processed_yolo": [],
+    "synthetic": [
+      {
+        "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\synthetic_dataset\\black_box\\10\\SYN_10_0006513.jpg",
+        "reason": "foreground area ratio below 0.01"
+      },
+      {
+        "file": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\synthetic_dataset\\black_box\\10\\SYN_10_0006514.jpg",
+        "reason": "foreground area ratio below 0.01"
+      }
+    ]
+  },
+  "generated_boxes": "synthetic images use conservative foreground segmentation",
+  "preview_directory": "C:\\Users\\aryan\\OneDrive\\Documents\\PROJECTS\\Divyakosh-final\\CV_model\\Data-yolo-robust\\audit\\previews",
+  "final_output_validation": {
+    "images_checked": 47052,
+    "labels_checked": 47052,
+    "invalid_count": 0,
+    "invalid_examples": [],
+    "class_counts": {
+      "train": {
+        "0": 9255,
+        "1": 8270,
+        "2": 6767,
+        "3": 4935,
+        "4": 4094,
+        "5": 4511
+      },
+      "val": {
+        "0": 928,
+        "1": 675,
+        "2": 892,
+        "3": 409,
+        "4": 408,
+        "5": 297
+      },
+      "test": {
+        "0": 819,
+        "1": 602,
+        "2": 666,
+        "3": 381,
+        "4": 331,
+        "5": 289
+      }
+    }
+  }
+}
