@@ -1367,3 +1367,26 @@ time {
     background-size: 100% 3px;
   }
 }
+.verdict.warn {
+  --c: var(--saffron);
+}
+
+.verdict.err {
+  --c: #7c6f63;
+}
+
+.slip.warn {
+  --c: var(--saffron);
+}
+
+.slip.warn .block {
+  background: #fffdf5;
+}
+
+.slip.err {
+  --c: #7c6f63;
+}
+
+.stat.y strong {
+  color: var(--saffron);
+}

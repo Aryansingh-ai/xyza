@@ -1,9 +1,10 @@
+const path = require("path");
+require("dotenv").config({ path: path.resolve(__dirname, ".env") });
 require("dotenv").config();
 
 const express = require("express");
 const { ethers } = require("ethers");
 const fs = require("fs");
-const path = require("path");
 const crypto = require("crypto");
 const Database = require("better-sqlite3");
 const proof = require("../sdk/proof");
@@ -509,6 +510,50 @@ function createRecordId(record) {
 
   return `${record.pocket_id || "unknown"}|${record.timestamp || "unknown"}`;
 
+}
+
+
+// ======================================================
+// LOCAL INTEGRITY HELPERS (FOR UN-ANCHORED CHECKS)
+// ======================================================
+
+function computeDonationId(donation) {
+  const identity = {
+    denomination: Number(donation.denomination),
+    model_version: donation.model_version ?? null,
+    pocket_id: donation.pocket_id ?? null,
+    source: donation.source ?? null,
+    timestamp: donation.timestamp ?? null
+  };
+  const sortedKeys = Object.keys(identity).sort();
+  const canonicalObj = {};
+  for (const k of sortedKeys) {
+    canonicalObj[k] = identity[k];
+  }
+  const jsonStr = JSON.stringify(canonicalObj);
+  return crypto.createHash("sha256").update(jsonStr, "utf8").digest("hex");
+}
+
+function loadInferenceLogIndex() {
+  const index = new Map();
+  try {
+    if (fs.existsSync(ML_LOG_FILE)) {
+      const content = fs.readFileSync(ML_LOG_FILE, "utf8");
+      const lines = content.split(/\r?\n/);
+      for (const line of lines) {
+        if (!line.trim()) continue;
+        try {
+          const entry = JSON.parse(line);
+          if (entry.timestamp) {
+            index.set(entry.timestamp, entry);
+          }
+        } catch (_) {}
+      }
+    }
+  } catch (err) {
+    console.error("Warning reading ML_LOG_FILE:", err.message);
+  }
+  return index;
 }
 
 
@@ -1517,6 +1562,7 @@ app.get(
 
 
       let status;
+      let tamperDetails = null;
 
       if (blockchainResult[0]) {
 
@@ -1527,11 +1573,32 @@ app.get(
 
         status =
           "TAMPERED";
+        tamperDetails = "Blockchain proof mismatch: current record contents do not match registered on-chain proof.";
 
       } else {
 
-        status =
-          "NOT_REGISTERED";
+        // Check local cryptographic checksum & audit log
+        const inferenceIndex = loadInferenceLogIndex();
+        const donation = item.donation;
+        const expectedId = computeDonationId(donation);
+        const logEntry = inferenceIndex.get(donation.timestamp);
+
+        const checksumMismatch =
+          donation.donation_id &&
+          donation.donation_id.toLowerCase() !== expectedId.toLowerCase();
+
+        const logMismatch =
+          logEntry &&
+          String(logEntry.predicted_denomination) !== String(donation.denomination);
+
+        if (checksumMismatch || logMismatch) {
+          status = "TAMPERED";
+          tamperDetails = logMismatch
+            ? `Local database modified: denomination changed from ₹${logEntry.predicted_denomination} (audit log) to ₹${donation.denomination}`
+            : "Local database modified: record checksum (donation_id) mismatch.";
+        } else {
+          status = "UNVERIFIED";
+        }
 
       }
 
@@ -1644,11 +1711,12 @@ function printVerificationSummaryIfChanged(
   total,
   verified,
   tampered,
-  notRegistered
+  unverified,
+  errors
 ) {
 
   const summaryKey =
-    `${total}|${verified}|${tampered}|${notRegistered}`;
+    `${total}|${verified}|${tampered}|${unverified}|${errors || 0}`;
 
   if (summaryKey === lastPrintedSummaryKey) {
     return;
@@ -1676,7 +1744,7 @@ function printVerificationSummaryIfChanged(
   );
 
   console.log(
-    "Verified:",
+    "Verified (On-chain):",
     verified
   );
 
@@ -1686,9 +1754,16 @@ function printVerificationSummaryIfChanged(
   );
 
   console.log(
-    "Not registered:",
-    notRegistered
+    "Unverified (Awaiting proof):",
+    unverified
   );
+
+  if (errors) {
+    console.log(
+      "Verification errors:",
+      errors
+    );
+  }
 
 }
 
@@ -1702,6 +1777,8 @@ app.get(
       const allRecords =
         getAllDonationRecords();
 
+      const inferenceIndex =
+        loadInferenceLogIndex();
 
       const results = [];
 
@@ -1712,6 +1789,9 @@ app.get(
 
         const record =
           item.record;
+
+        const donation =
+          item.donation;
 
 
         // Only ACCEPT records
@@ -1758,39 +1838,12 @@ app.get(
 
 
         // ----------------------------------------------
-        // Determine status locally
+        // Determine status with multi-tier verification
         // ----------------------------------------------
 
-        let status;
+        let status = "UNVERIFIED";
         let exists = false;
-
-        if (!originalSnapshot) {
-
-          status =
-            "NOT_REGISTERED";
-
-        } else if (
-          originalSnapshot.proofHash.toLowerCase() === currentHash.toLowerCase() ||
-          (originalSnapshot.proofHash.toLowerCase() === legacyHash.toLowerCase())
-        ) {
-
-          status =
-            "VERIFIED";
-
-          exists =
-            true;
-
-        } else {
-
-          status =
-            "TAMPERED";
-
-        }
-
-
-        // ----------------------------------------------
-        // Compare original/current values
-        // ----------------------------------------------
+        let tamperDetails = null;
 
         const currentDenomination =
           record.predicted_denomination ||
@@ -1800,70 +1853,108 @@ app.get(
           record.target_bin ||
           null;
 
-
-        const originalDenomination =
+        let originalDenomination =
           originalSnapshot
             ?.originalDenomination ||
           null;
 
-        const originalBin =
+        let originalBin =
           originalSnapshot
             ?.originalBin ||
           null;
 
+        try {
+          if (originalSnapshot) {
+            // Tier 1: Authoritative Monad Blockchain Proof Snapshot comparison
+            const matchCanonical =
+              originalSnapshot.proofHash.toLowerCase() === currentHash.toLowerCase();
+            const matchLegacy =
+              legacyHash &&
+              originalSnapshot.proofHash.toLowerCase() === legacyHash.toLowerCase();
 
-        let tamperDetails =
-          null;
+            if (matchCanonical || matchLegacy) {
+              status = "VERIFIED";
+              exists = true;
+            } else {
+              status = "TAMPERED";
+              const changes = [];
 
+              if (
+                originalDenomination &&
+                String(originalDenomination) !== String(currentDenomination)
+              ) {
+                changes.push(
+                  `Denomination changed from ₹${originalDenomination} to ₹${currentDenomination}`
+                );
+              }
 
-        if (
-          status ===
-          "TAMPERED"
-        ) {
+              if (
+                originalBin &&
+                originalBin !== currentBin
+              ) {
+                changes.push(
+                  `Bin changed from ${originalBin} to ${currentBin}`
+                );
+              }
 
-          const changes = [];
+              if (changes.length === 0) {
+                changes.push(
+                  "Record contents changed and the current hash no longer matches the blockchain proof."
+                );
+              }
 
+              tamperDetails = changes.join(" | ");
+            }
+          } else {
+            // Tier 2: Local cryptographic checksum & append-only audit stream cross-reference
+            // Check 2a: donation_id checksum
+            let checksumMismatch = false;
+            if (donation.donation_id) {
+              const expectedDonationId = computeDonationId(donation);
+              if (donation.donation_id.toLowerCase() !== expectedDonationId.toLowerCase()) {
+                checksumMismatch = true;
+              }
+            }
 
-          if (
-            originalDenomination !==
-            currentDenomination
-          ) {
+            // Check 2b: inference.jsonl audit log entry
+            const logEntry = inferenceIndex.get(donation.timestamp);
+            let logMismatch = false;
+            const changes = [];
 
-            changes.push(
-              `Denomination changed from ₹${originalDenomination} to ₹${currentDenomination}`
-            );
+            if (logEntry) {
+              const logDenom = String(logEntry.predicted_denomination);
+              if (logDenom && logDenom !== String(currentDenomination)) {
+                logMismatch = true;
+                originalDenomination = logDenom;
+                changes.push(
+                  `Denomination changed from ₹${logDenom} (audit log) to ₹${currentDenomination} (SQLite)`
+                );
+              }
+              if (logEntry.target_bin && logEntry.target_bin !== currentBin) {
+                logMismatch = true;
+                originalBin = logEntry.target_bin;
+                changes.push(
+                  `Bin changed from ${logEntry.target_bin} (audit log) to ${currentBin} (SQLite)`
+                );
+              }
+            }
 
+            if (checksumMismatch || logMismatch) {
+              status = "TAMPERED";
+              if (changes.length > 0) {
+                tamperDetails = changes.join(" | ");
+              } else {
+                tamperDetails =
+                  "Database row modified directly: record integrity checksum (donation_id) mismatch.";
+              }
+            } else {
+              // Passed local checks, but not yet anchored on Monad blockchain
+              status = "UNVERIFIED";
+            }
           }
-
-
-          if (
-            originalBin !==
-            currentBin
-          ) {
-
-            changes.push(
-              `Bin changed from ${originalBin} to ${currentBin}`
-            );
-
-          }
-
-
-          if (
-            changes.length === 0
-          ) {
-
-            changes.push(
-              "Record contents changed and the current hash no longer matches the blockchain proof."
-            );
-
-          }
-
-
-          tamperDetails =
-            changes.join(
-              " | "
-            );
-
+        } catch (verifErr) {
+          status = "VERIFICATION_ERROR";
+          tamperDetails = `Verification error: ${verifErr.message}`;
         }
 
 
@@ -1914,10 +2005,12 @@ app.get(
           // Blockchain information (from snapshot instead of RPC)
           sourceId:
             originalSnapshot?.sourceId ||
-            null,
+            donation.pocket_id ||
+            "webcam-0",
 
           timestamp:
             originalSnapshot?.registeredAt ||
+            donation.created_at ||
             null,
 
           registeredBy:
@@ -1961,11 +2054,21 @@ app.get(
         ).length;
 
 
-      const notRegisteredRecords =
+      const unverifiedRecords =
         results.filter(
           item =>
             item.status ===
+            "UNVERIFIED" ||
+            item.status ===
             "NOT_REGISTERED"
+        ).length;
+
+
+      const errorRecords =
+        results.filter(
+          item =>
+            item.status ===
+            "VERIFICATION_ERROR"
         ).length;
 
 
@@ -1973,7 +2076,8 @@ app.get(
         results.length,
         verifiedRecords,
         tamperedRecords,
-        notRegisteredRecords
+        unverifiedRecords,
+        errorRecords
       );
 
 
@@ -1989,7 +2093,12 @@ app.get(
 
         tamperedRecords,
 
-        notRegisteredRecords,
+        unverifiedRecords,
+
+        errorRecords,
+
+        notRegisteredRecords:
+          unverifiedRecords, // Backward compatibility
 
         records:
           results
@@ -2461,3 +2570,5 @@ server.on(
 
   }
 );
+
+module.exports = { app, server };

@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import {
   ShieldCheck, ShieldAlert, RefreshCw, XCircle, Link2, Cpu, Hash, Radar,
-  AlertTriangle, ExternalLink, Eye, EyeOff, Key, Sparkles, CheckCircle, Bot
+  AlertTriangle, ExternalLink, Eye, EyeOff, Key, Sparkles, CheckCircle, Bot, Clock
 } from "lucide-react";
 import "./App.css";
 
@@ -70,12 +70,13 @@ function Gopuram() {
 }
 
 /* ---------- gauge + stats ---------- */
-function Insights({ total, verified, tampered, pct }) {
+function Insights({ total, verified, tampered, unverified, pct }) {
   const [armed, setArmed] = useState(false);
   useEffect(() => { const t = setTimeout(() => setArmed(true), 80); return () => clearTimeout(t); }, []);
   const nTotal = useCountUp(armed ? total : 0, 1100);
   const nOk = useCountUp(armed ? verified : 0, 1100);
   const nBad = useCountUp(armed ? tampered : 0, 1100);
+  const nUnverified = useCountUp(armed ? (unverified || 0) : 0, 1100);
   const shown = useCountUp(armed ? Math.round(pct * 10) : 0, 1300) / 10;
   const bad = tampered > 0;
   const r = 86, c = 2 * Math.PI * r;
@@ -95,13 +96,14 @@ function Insights({ total, verified, tampered, pct }) {
             <circle cx="120" cy="120" r={r} className="g-fill badarc" strokeDasharray={c} strokeDashoffset={c - (c * shown) / 100} />
           </g>
           <text x="120" y="124" className="g-num">{shown.toFixed(1)}</text>
-          <text x="120" y="148" className="g-sub">% intact</text>
+          <text x="120" y="148" className="g-sub">% verified</text>
         </svg>
       </div>
       <div className="numbers">
-        <div className="stat"><strong>{nTotal.toLocaleString()}</strong><span>records registered</span></div>
-        <div className="stat g"><strong>{nOk.toLocaleString()}</strong><span>match their proof</span></div>
-        <div className={`stat r ${bad ? "dominant" : ""}`}><strong>{nBad.toLocaleString()}</strong><span>failed verification</span></div>
+        <div className="stat"><strong>{nTotal.toLocaleString()}</strong><span>total records</span></div>
+        <div className="stat g"><strong>{nOk.toLocaleString()}</strong><span>verified on-chain</span></div>
+        <div className={`stat r ${bad ? "dominant" : ""}`}><strong>{nBad.toLocaleString()}</strong><span>tampered</span></div>
+        <div className="stat y"><strong>{nUnverified.toLocaleString()}</strong><span>unverified</span></div>
       </div>
     </section>
   );
@@ -110,28 +112,31 @@ function Insights({ total, verified, tampered, pct }) {
 /* ---------- tampered record comparison ---------- */
 function TamperCard({ r, i }) {
   const note = details(r.tamperDetails);
+  const isLocal = !r.originalProofHash;
   return (
     <article className="tcard">
       <header>
         <b><AlertTriangle size={16} /> Record #{recNo(r, i)}</b>
-        <span className="mismatch">Blockchain proof mismatch</span>
+        <span className="mismatch" style={{ background: "rgba(179,38,30,0.15)", color: "var(--red)" }}>
+          {isLocal ? "Local Tamper Detected" : "Blockchain Proof Mismatch"}
+        </span>
       </header>
       <div className="cmp">
         <div className="side">
-          <small>Original</small>
+          <small>Original ({isLocal ? "Audit Log" : "Verified"})</small>
           <strong>{money(r.originalDenomination)}</strong>
           <code>{r.originalBin ?? "—"}</code>
         </div>
         <div className="neq" aria-label="does not equal"><i /><b>≠</b><i /></div>
         <div className="side now">
-          <small>Current</small>
+          <small>Current (SQLite)</small>
           <strong>{money(r.currentDenomination)}</strong>
           <code>{r.currentBin ?? "—"}</code>
         </div>
       </div>
-      {(r.originalProofHash || r.proofHash) && (
+      {(r.originalProofHash || r.proofHash || r.eventId) && (
         <div className="hashes">
-          <div><small>Original proof</small><code>{clip(r.originalProofHash) ?? "—"}</code></div>
+          <div><small>{isLocal ? "Checksum / Event ID" : "Original proof"}</small><code>{clip(r.originalProofHash) ?? (r.eventId ? clip(r.eventId) : "—")}</code></div>
           <span className="hbreak">→</span>
           <div className="now"><small>Current calculated proof</small><code>{clip(r.proofHash) ?? "—"}</code></div>
         </div>
@@ -961,10 +966,13 @@ export default function App() {
     return () => clearInterval(id);
   }, []);
 
+  const [showAllTampered, setShowAllTampered] = useState(false);
   const records = data?.records || [];
   const total = Number(data?.totalRecords || 0);
   const tampered = records.filter((r) => r.status === "TAMPERED").length;
-  const verified = Math.max(total - tampered, 0);
+  const verified = records.filter((r) => r.status === "VERIFIED").length;
+  const unverified = records.filter((r) => r.status === "UNVERIFIED" || r.status === "NOT_REGISTERED").length;
+  const errCount = records.filter((r) => r.status === "VERIFICATION_ERROR").length;
   const pct = total > 0 ? (verified / total) * 100 : 100;
 
   if (loading || error)
@@ -1020,17 +1028,29 @@ export default function App() {
               If a single digit changes later, the fingerprint no longer matches and we flag it here.
             </p>
 
-            <div className={`verdict ${tampered ? "bad" : "ok"}`} role="status" aria-live="polite">
+            <div className={`verdict ${tampered ? "bad" : errCount ? "err" : unverified ? "warn" : "ok"}`} role="status" aria-live="polite">
               <span className="v-icon">
-                {tampered ? <ShieldAlert size={24} /> : <ShieldCheck size={24} />}
+                {tampered ? <ShieldAlert size={24} /> : errCount ? <XCircle size={24} /> : unverified ? <AlertTriangle size={24} /> : <ShieldCheck size={24} />}
                 <i className="v-ping" />
               </span>
               <div>
-                <strong>{tampered ? "TAMPERING DETECTED" : "SYSTEM SECURE"}</strong>
+                <strong>
+                  {tampered
+                    ? "TAMPERING DETECTED"
+                    : errCount
+                      ? "VERIFICATION ERROR"
+                      : unverified
+                        ? "SYSTEM SECURE (PARTIALLY ANCHORED)"
+                        : "SYSTEM SECURE"}
+                </strong>
                 <span>
                   {tampered
-                    ? `${tampered} record${tampered === 1 ? "" : "s"} no longer match their proof. Review them now.`
-                    : "All records match their on-chain proof."}
+                    ? `${tampered} record${tampered === 1 ? "" : "s"} failed integrity verification. Review them below.`
+                    : errCount
+                      ? `${errCount} record${errCount === 1 ? "" : "s"} encountered verification errors.`
+                      : unverified
+                        ? `${verified} record${verified === 1 ? "" : "s"} verified on Monad; ${unverified} record${unverified === 1 ? "" : "s"} awaiting on-chain anchoring.`
+                        : "All records match their on-chain proof."}
                 </span>
               </div>
             </div>
@@ -1057,23 +1077,26 @@ export default function App() {
             {chain.length === 0 && <p className="muted">No records yet. New donations appear here as they are registered.</p>}
             {chain.map((r, i) => {
               const bad = r.status === "TAMPERED";
+              const isUnverified = r.status === "UNVERIFIED";
+              const isError = r.status === "VERIFICATION_ERROR";
               const idx = offset + i;
               const key = String(recNo(r, idx));
               const ts = when(r);
+              const slipClass = bad ? "bad" : isError ? "err" : isUnverified ? "warn" : "ok";
               return (
                 <div className="link-group" key={key}>
                   {i > 0 && (
                     <span className={`wire ${i >= firstBroken && firstBroken > -1 && (bad || chain[i - 1].status === "TAMPERED") ? "cut" : ""}`} />
                   )}
-                  <div className={`slip ${bad ? "bad" : "ok"} ${fresh.has(key) ? "fresh" : ""}`} style={{ "--d": `${i * 60}ms` }}>
+                  <div className={`slip ${slipClass} ${fresh.has(key) ? "fresh" : ""}`} style={{ "--d": `${i * 60}ms` }}>
                     <article className="block">
                       <small>Block</small>
                       <b>#{recNo(r, idx)}</b>
                       <code>{shortHash(r, idx)}</code>
                       {ts && <time>{ts}</time>}
                       <span className="stamp">
-                        {bad ? <AlertTriangle size={12} /> : <ShieldCheck size={12} />}
-                        {bad ? "Tampered" : "Verified"}
+                        {bad ? <AlertTriangle size={12} /> : isError ? <XCircle size={12} /> : isUnverified ? <Clock size={12} /> : <ShieldCheck size={12} />}
+                        {bad ? "Tampered" : isError ? "Error" : isUnverified ? "Unverified" : "Verified"}
                       </span>
                     </article>
                   </div>
@@ -1085,18 +1108,34 @@ export default function App() {
 
         {badRecords.length > 0 && (
           <section className="tamper" aria-label="Tampered records">
-            <div className="sec-head">
-              <h2>Original record ≠ current record</h2>
-              <span className="muted">Each proof was anchored on Monad before the change</span>
+            <div className="sec-head row">
+              <div>
+                <h2>Integrity Violation: Original record ≠ current record</h2>
+                <span className="muted">Tampered records detected against authoritative proofs & audit logs</span>
+              </div>
+              {badRecords.length > 4 && (
+                <button
+                  type="button"
+                  className="btn"
+                  onClick={() => setShowAllTampered(!showAllTampered)}
+                  style={{ margin: 0, padding: "6px 14px", fontSize: "12px" }}
+                >
+                  {showAllTampered ? "Show Top 4" : `View All ${badRecords.length} Tampered`}
+                </button>
+              )}
             </div>
             <div className="tgrid">
-              {badRecords.slice(0, 4).map(([r, i]) => <TamperCard key={recNo(r, i)} r={r} i={i} />)}
+              {(showAllTampered ? badRecords : badRecords.slice(0, 4)).map(([r, i]) => (
+                <TamperCard key={recNo(r, i)} r={r} i={i} />
+              ))}
             </div>
-            {badRecords.length > 4 && <p className="muted more">+ {badRecords.length - 4} more tampered records</p>}
+            {!showAllTampered && badRecords.length > 4 && (
+              <p className="muted more">+ {badRecords.length - 4} more tampered records. Click button above to view all.</p>
+            )}
           </section>
         )}
 
-        <Insights total={total} verified={verified} tampered={tampered} pct={pct} />
+        <Insights total={total} verified={verified} tampered={tampered} unverified={unverified} pct={pct} />
 
         <ProofAnalytics />
         <ProofVerifier selectedHash={selectedProof} />
